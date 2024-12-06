@@ -7,14 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.unipu.microcart.R
 import com.unipu.microcart.databinding.FragmentCartBinding
 
 class CartFragment : Fragment() {
 
     private var _binding: FragmentCartBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,14 +21,14 @@ class CartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val cartViewModel =
-            ViewModelProvider(this).get(CartViewModel::class.java)
+            ViewModelProvider(this)[CartViewModel::class.java]
 
         _binding = FragmentCartBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textCart
         cartViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+            textView.text = getString(R.string.your_cart_is_empty)
         }
         return root
     }
