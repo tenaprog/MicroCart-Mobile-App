@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/fragment_home_item_background"
     android:gravity="center"
+    android:layout_margin="4dp"
     android:orientation="vertical">
 
     <ImageView
@@ -18,8 +20,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:layout_marginBottom="16dp">
+        android:paddingEnd="8dp">
 
         <TextView
             android:id="@+id/item_name"
