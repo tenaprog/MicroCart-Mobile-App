@@ -12,19 +12,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:paddingTop="8dp">
+        android:paddingTop="8dp"
+        android:paddingRight="8dp">
 
         <SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:queryHint="Search item by name"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/search_view_background"
             android:layout_margin="12dp"
+            android:background="@drawable/search_view_background"
             android:iconifiedByDefault="false"
-            />
+            android:queryHint="Search item by name"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewHome"

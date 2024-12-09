@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.unipu.microcart.Item
 import com.unipu.microcart.R
 
-class HomeItemAdapter(private var items: List<Item>) : RecyclerView.Adapter<HomeItemAdapter.ViewHolder>() {
+class HomeItemAdapter(
+    private var items: List<Item>,
+    private val onItemClick: (Item) -> Unit
+) : RecyclerView.Adapter<HomeItemAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.item_name)
@@ -28,6 +31,7 @@ class HomeItemAdapter(private var items: List<Item>) : RecyclerView.Adapter<Home
         holder.image.setImageResource(item.image)
         holder.name.text = item.name
         holder.price.text = "${item.price} EUR"
+        holder.itemView.setOnClickListener { onItemClick(item) }
     }
 
     override fun getItemCount(): Int = items.size
