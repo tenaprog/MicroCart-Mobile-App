@@ -98,10 +98,10 @@ class ItemDetailsFragment : Fragment() {
                 writer.write(jsonArray.toString())
             }
 
-            Toast.makeText(requireContext(), "Item saved to cart!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Item added to cart!", Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
             e.printStackTrace()
-            Toast.makeText(requireContext(), "Failed to save item", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Failed to add item", Toast.LENGTH_SHORT).show()
         }
     }
 

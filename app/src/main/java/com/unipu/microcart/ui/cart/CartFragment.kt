@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.unipu.microcart.Item
+import com.unipu.microcart.R
 import com.unipu.microcart.databinding.FragmentCartBinding
 import org.json.JSONArray
 import org.json.JSONObject
@@ -33,6 +35,14 @@ class CartFragment : Fragment() {
         }
         binding.cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.cartRecyclerView.adapter = cartAdapter
+
+        updateUI()
+
+        binding.buttonBuyNow.setOnClickListener {
+            findNavController().navigate(R.id.action_cart_to_orderPlaced)
+            // TODO: send email to user
+            // TODO: clear cart from storage
+        }
 
         return binding.root
     }
@@ -61,9 +71,28 @@ class CartFragment : Fragment() {
         }
     }
 
+    private fun updateUI() {
+        if (cartItems.isEmpty()) {
+            binding.textViewEmptyCart.visibility = View.VISIBLE
+            binding.textViewTotal.visibility = View.GONE
+            binding.buttonBuyNow.visibility = View.GONE
+        } else {
+            binding.textViewEmptyCart.visibility = View.GONE
+            binding.textViewTotal.visibility = View.VISIBLE
+            binding.buttonBuyNow.visibility = View.VISIBLE
+            updateTotal()
+        }
+    }
+
+    private fun updateTotal() {
+        val total = cartItems.sumOf { it.price }
+        binding.textViewTotal.text = "Total: %.2f EUR".format(total)
+    }
+
     private fun deleteItem(item: Item) {
         cartItems.remove(item)
         binding.cartRecyclerView.adapter?.notifyDataSetChanged()
+        updateUI()
         saveItemsToStorage()
     }
 

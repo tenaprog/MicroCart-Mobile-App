@@ -10,4 +10,7 @@
     <string name="add_to_cart">Add To Cart</string>
     <string name="size">Size:</string>
     <string name="delete">delete</string>
+    <string name="cart_empty_message">Add items to cart.</string>
+    <string name="order_placed">Order placed</string>
+    <string name="success">Order has been successful!\n\nConfirmation has been sent to your email\n\nYour items will be with you shortly.</string>
 </resources>

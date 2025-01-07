@@ -27,7 +27,19 @@
         android:id="@+id/navigation_cart"
         android:name="com.unipu.microcart.ui.cart.CartFragment"
         android:label="@string/title_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart">
+        <action
+            android:id="@+id/action_cart_to_orderPlaced"
+            app:destination="@id/navigation_order_placed"
+            app:popUpTo="@+id/navigation_cart"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_order_placed"
+        android:name="com.unipu.microcart.ui.cart.OrderPlacedFragment"
+        android:label="@string/order_placed"
+        tools:layout="@layout/fragment_order_placed" />
 
     <fragment
         android:id="@+id/navigation_profile"
