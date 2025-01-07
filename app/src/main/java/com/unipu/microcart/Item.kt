@@ -5,7 +5,8 @@ class Item(
     val description: String,
     val image: Int,
     val availableSizes: Array<String>,
-    val price: Double
+    val price: Double,
+    var chosenSize: String = ""
 )
 
 fun getItemDescription(): String {
