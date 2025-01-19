@@ -9,8 +9,8 @@ android {
 
     defaultConfig {
         applicationId = "com.unipu.microcart"
-        minSdk = 29
-        targetSdk = 29
+        minSdk = 34
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
