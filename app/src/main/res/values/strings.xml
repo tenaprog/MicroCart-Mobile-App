@@ -13,4 +13,13 @@
     <string name="cart_empty_message">Add items to cart.</string>
     <string name="order_placed">Order placed</string>
     <string name="success">Order has been successful!\n\nConfirmation has been sent to your email\n\nYour items will be with you shortly.</string>
+    <string name="save">Save</string>
+    <string name="revert_changes">Revert changes</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="street">Street</string>
+    <string name="number">Number</string>
+    <string name="city">City</string>
+    <string name="country">Country</string>
+    <string name="phone">Phone</string>
 </resources>

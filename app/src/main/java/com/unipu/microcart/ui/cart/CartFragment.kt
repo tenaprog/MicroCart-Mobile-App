@@ -39,9 +39,8 @@ class CartFragment : Fragment() {
         updateUI()
 
         binding.buttonBuyNow.setOnClickListener {
+            clearCartStorage()
             findNavController().navigate(R.id.action_cart_to_orderPlaced)
-            // TODO: send email to user
-            // TODO: clear cart from storage
         }
 
         return binding.root
@@ -127,6 +126,14 @@ class CartFragment : Fragment() {
         } catch (e: Exception) {
             e.printStackTrace()
             Toast.makeText(requireContext(), "Failed to delete item", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun clearCartStorage() {
+        val externalStorage = requireContext().getExternalFilesDir(null)
+        val file = File(externalStorage, "microcart.json")
+        if (file.exists()) {
+            file.delete()
         }
     }
 
